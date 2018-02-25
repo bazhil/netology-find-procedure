@@ -39,7 +39,7 @@ import os
 
 migrations = 'Migrations'
 current_dir = os.path.dirname(os.path.abspath(__file__))
-abs_path = current_dir + '\\' + migrations
+abs_path = os.path.join(current_dir + '\\' + migrations)
 
 def find_file():
     folder = os.listdir(abs_path)
@@ -58,7 +58,7 @@ def find_file():
         for file in file_list:
             with open(abs_path + '\\' + file, 'r') as f:
                 for line in f:
-                    if string in line:
+                    if string in f.read():
                         result.append(file)
                         break
         for res in result:
@@ -67,5 +67,5 @@ def find_file():
 
 if __name__ == '__main__':
     find_file()
-    pass
+
 
