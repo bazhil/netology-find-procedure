@@ -33,7 +33,7 @@ def find_file():
             file_list = result
             result = []
         for file in file_list:
-            with open(abs_path + '\\' + file, 'r') as f:
+            with open(os.path.join(abs_path, file), 'r') as f:
                 for line in f:
                     if string in line:
                         result.append(file)
@@ -44,4 +44,3 @@ def find_file():
 
 if __name__ == '__main__':
     find_file()
-    pass
